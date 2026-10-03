@@ -1,0 +1,87 @@
+site_name: Jake's Blog
+site_url: https://jungbeomseo.github.io
+site_author: Jungbeom Seo (Jake)
+site_description: Jake's personal website and blog.
+
+# repo_name:
+# repo_url:
+
+theme:
+  name: material
+  # favicon: assets/favicon.png
+  icon:
+    logo: logo
+  features:
+    - navigation.indexes
+    # - navigation.sections
+    # - navigation.tabs
+    - navigation.top
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+
+plugins:
+  - blog:
+      blog_toc: true
+      archive: false
+      # authors_profiles: true
+      # categories_allowed: []
+  # - social
+  - tags
+  - search
+  - meta
+  - rss:
+      match_path: "blog/posts/.*"
+      date_from_meta:
+        as_creation: date.created
+        as_update: date.updated
+
+nav:
+  - About Me: index.md
+  - Blog:
+     - blog/index.md
+    #  - Tags: blog/tags.md
+  # - Tags: tags.md
+
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+  # analytics:
+  #   provider: google
+  #   property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: /fontawesome/regular/envelope
+      name: Email
+      link: mailto:jungbeomjs@gmail.com
+    - icon: fontawesome/brands/github
+      link: https://github.com/jungbeomseo
+    - icon: fontawesome/brands/square-x-twitter
+      link: https://x.com/jake_jseo
+    - icon: fontawesome/solid/rss-square
+      link: /feed_rss_created.xml
+    
+# hooks:
+#   - hooks/socialmedia.py
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
